@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #d1c4e9;
+      }
+
+      /* Main container */
+      .todo-container {
+        background: #ffffff;
+        padding: 20px 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .todo-container h1 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #4a148c;
+      }
+
+      /* Form styles */
+      form {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      form input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      form button {
+        background-color: #7e57c2;
+        border: none;
+        padding: 10px 15px;
+        color: white;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      form button:hover {
+        background-color: #5e35b1;
+      }
+
+      /* List styles */
+      ul {
+        list-style: none;
+        margin-top: 20px;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        background-color: #f9f9f9;
+      }
+
+      li span {
+        flex: 1;
+        margin-left: 10px;
+        font-size: 1rem;
+      }
+
+      li.completed span {
+        text-decoration: line-through;
+        color: #888;
+      }
+
+      li button {
+        background: none;
+        border: none;
+        color: #ff5252;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: color 0.3s;
+      }
+
+      li button:hover {
+        color: #d32f2f;
+      }
+
+      li input[type="checkbox"] {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <form id="todo-form">
+      <input
+        type="text"
+        id="todo-input"
+        placeholder="Add a new todo"
+        required
+      />
+      <button type="submit">Add</button>
+    </form>
+    <ul id="todo-list"></ul>
+
+    <script>
+      const todoForm = document.getElementById("todo-form");
+      const todoInput = document.getElementById("todo-input");
+      const todoList = document.getElementById("todo-list");
+
+      // Add todo event listener
+      todoForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const todoText = todoInput.value.trim();
+        if (todoText !== "") {
+          addTodo(todoText);
+          todoInput.value = ""; // Clear the input field
+        }
+      });
+
+      // Function to add a new todo
+      function addTodo(text) {
+        const li = document.createElement("li");
+
+        // Create a checkbox
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.addEventListener("change", toggleTodo);
+
+        // Create a text span
+        const span = document.createElement("span");
+        span.textContent = text;
+
+        // Create a delete button
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", deleteTodo);
+
+        // Append elements to the list item
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        li.appendChild(deleteButton);
+
+        // Add the list item to the todo list
+        todoList.appendChild(li);
+      }
+
+      // Function to toggle a todo's completion state
+      function toggleTodo(event) {
+        const listItem = event.target.parentElement;
+        listItem.classList.toggle("completed");
+      }
+
+      // Function to delete a todo
+      function deleteTodo(event) {
+        const listItem = event.target.parentElement;
+        todoList.removeChild(listItem);
+      }
+    </script>
+  </body>
+</html>
