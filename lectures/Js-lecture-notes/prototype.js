@@ -26,7 +26,7 @@ Person.prototype.sayHi = function () {
 const person1 = new Person("Jack", 11, "M");
 const person2 = new Person("Mike", 12, "M");
 
-console.log(Person.personFoo())
+console.log(Person.personFoo());
 
 // because this is true, the instance can get the prototype properties
 // console.log(person1 instanceof Person);
