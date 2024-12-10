@@ -4,8 +4,6 @@ const people = {
   3: { name: "Charlie", age: 35 },
 };
 
-<<<<<<< HEAD
-// const removeAgeAbove25 = people.filter( person =>  person.age <= 25})
 
 // get the average age of the people
 export const getAverageAge = (people) => {
@@ -19,7 +17,6 @@ export const getAverageAge = (people) => {
   }
   return count >0 ? ageSum / count: 0;
 };
-=======
-// get the average age of the people
-export const getAverageAge = (people) => {};
->>>>>>> 9fc8af84866064ecba700dd8c6733760a2046f3c
+
+
+

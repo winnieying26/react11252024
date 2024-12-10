@@ -31,7 +31,7 @@ export const TOPPINGS = {
 };
 
 export default class Pizza {
-<<<<<<< HEAD
+
   constructor(size, toppingCodes) {
     this.size = size;
     this.toppingCodes = toppingCodes;
@@ -59,13 +59,5 @@ export default class Pizza {
     const toppingDescription = toppings.join(", ");
     return `A ${this.size} pizza with ${toppingDescription}.`;
   }
-=======
-  constructor(size, toppingCodes) {}
 
-  getBaseCost() {}
-
-  getTotalCost() {}
-
-  getDescription() {}
->>>>>>> 9fc8af84866064ecba700dd8c6733760a2046f3c
 }

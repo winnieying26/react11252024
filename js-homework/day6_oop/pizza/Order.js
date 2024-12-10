@@ -13,7 +13,7 @@ export default class Order {
     this.status = "pending";
   }
 
-<<<<<<< HEAD
+
   addPizza(pizza) {
     this.pizzas.push(pizza) ;
   }
@@ -33,13 +33,4 @@ export default class Order {
   updateStatus(newStatus) {
     this.status = newStatus;
   }
-=======
-  addPizza(pizza) {}
-
-  removePizza(index) {}
-
-  getTotalCost() {}
-
-  updateStatus(newStatus) {}
->>>>>>> 9fc8af84866064ecba700dd8c6733760a2046f3c
 }
